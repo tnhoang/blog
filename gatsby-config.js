@@ -6,7 +6,7 @@ const googleAnalyticsTrackingId = process.env.GOOGLE_ANALYTICS_ID;
 module.exports = {
   siteMetadata: {
     siteTitle: `tnhoang 🦁`,
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitleAlt: `tnhoang`,
     author: `art`,
     siteImage: ``,
     siteLanguage: `en`,
