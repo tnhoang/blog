@@ -16,6 +16,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-vercel",
+      options: {
+        // (optional) Prints metrics in the console when true
+        debug: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-matomo",
       options: {
         siteId: "1",
