@@ -20,7 +20,7 @@ module.exports = {
       options: {
         siteId: "1",
         matomoUrl: "https://tnhoang.matomo.cloud/",
-        siteUrl: "https://www.tnhoang.me/",
+        siteUrl: "https://tnhoang.me/",
       },
     },
     {
