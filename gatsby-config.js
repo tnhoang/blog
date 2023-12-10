@@ -16,6 +16,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-matomo",
+      options: {
+        siteId: "1",
+        matomoUrl: "https://tnhoang.matomo.cloud/",
+        siteUrl: "https://www.tnhoang.me/",
+      },
+    },
+    {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
