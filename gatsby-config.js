@@ -11,7 +11,7 @@ module.exports = {
     siteImage: ``,
     siteLanguage: `en`,
     siteDescription: `en`,
-    siteUrl: `http://localhost:8000`,
+    siteUrl: "https://tnhoang.me/",
     siteHeadline: `en`,
   },
   plugins: [
