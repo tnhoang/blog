@@ -1,0 +1,153 @@
+---
+title: "Javascript in short"
+date: 2024-03-18
+slug: "/js-in-short"
+tags:
+  - Programming
+---
+
+> Speaking Javascript - Dr. Axel Rauschmayer
+
+#### Array
+
+```js
+// Array are maps not tuples
+// 1. Array has hole
+const arr = []
+arr[1] = "1" // arr => [, "1"]
+// 2. Array has props
+arr.foo = 123
+// `in` operator will loop through property keys and indices
+for (const key in arr) {
+  console.log(key); // 1, foo
+}
+
+// ---------------------
+// Array indices
+// Indices that are out of range are treated as property key
+arr[-1] = 'a';
+arr[4294967296] = 'b';
+// arr => []
+// arr['-1'] => 'a'
+// arr['4294967296'] => 'b'
+
+// ---------------------
+// Delete array elements will create hole
+const arr = ['a', 'b']
+delete arr[1]
+// arr => ['a', ]
+
+// So should use splice(Destructive) to not create hole
+arr.splice(1,1)
+// arr => ['a']
+
+// ---------------------
+// Methods that check/skip holes
+// Check
+.join, sort
+
+// Skip
+.forEach, every/some, map, filter, for in
+
+// ---------------------
+// Array prototype methods
+
+// Add/Remove elements(Destructive)
+arr.shift/unshift/pop/push/splice()
+// Sorting/Reversing elements(Destructive)
+arr.reverse/sort()
+
+// Concatenating/Slicing/Joining elements(NonDestructive)
+arr.concat/slice/join()
+// Search(NonDestructive)
+arr.indexOf/lastIndexOf()
+// Iteration(NonDestructive)
+arr.forEach/every/some()
+
+// Transformation(NonDestructive)
+arr.map/filter()
+// Reduction(NonDestructive)
+arr.reduce()
+```
+
+#### Loop
+
+```js
+// Normal for
+for (let i = 0; i < arr.length; i++) {
+  const element = arr[i];
+}
+
+// For-in: loop through any object
+for (let key in arr) {
+}
+
+// For-of: loop through only iterable object
+for (let key of Object.keys(o)) {
+}
+```
+
+#### String
+
+```js
+// Useful functions
+s.split(",");
+s.slice((start = 1), (end = 2));
+s.trim();
+s.toLowerCase();
+s.toUpperCase();
+s.indexOf(",");
+s.lastIndexOf(",");
+s.replace("a", "b");
+```
+
+#### Number
+
+```js
+// Check NaN
+Number.isNaN(x)
+
+// Converting
+Number(undefined) => NaN
+Number(null) => 0
+Number(NaN) => NaN
+Number(false) => 0
+Number('3.14') => 3.14
+Number(o: Object) => Call ToPrimitive
+```
+
+#### Boolean
+
+```js
+// Converting
+Boolean(null, undefined, NaN, 0, '') => false
+Boolean({}) => true for any object
+```
+
+#### Occurences of null
+
+Complicated
+
+#### Occurences of NaN
+
+When converting variable to number
+
+#### Occurences of undefined
+
+```js
+// Uninit variable
+let a;
+
+// Missing params
+function foo(a, b) {
+  console.log(b);
+}
+
+// Object access nonexistence prop
+const o = {};
+console.log(o.a);
+
+// Function with no return
+function foo() {}
+console.log(foo());
+```
