@@ -17,10 +17,7 @@ const arr = []
 arr[1] = "1" // arr => [, "1"]
 // 2. Array has props
 arr.foo = 123
-// `in` operator will loop through property keys and indices
-for (const key in arr) {
-  console.log(key); // 1, foo
-}
+
 
 // ---------------------
 // Array indices
@@ -48,6 +45,12 @@ arr.splice(1,1)
 
 // Skip
 .forEach, every/some, map, filter, for in
+// Note: `in` operator will loop through property keys and indices
+const arr = [1];
+arr.foo = 'bar';
+for (const key in arr) {
+  console.log(key); // 1, foo
+}
 
 // ---------------------
 // Array prototype methods
@@ -120,34 +123,42 @@ Number(o: Object) => Call ToPrimitive
 
 ```js
 // Converting
-Boolean(null, undefined, NaN, 0, '') => false
-Boolean({}) => true for any object
+Boolean(null, undefined, NaN, 0, ""); // => false
+Boolean({}); // => true for any object
 ```
 
 #### Occurences of null
 
-Complicated
+```js
+document.getElementById("foo"); // null
+```
 
 #### Occurences of NaN
 
-When converting variable to number
+```js
+// When converting variable to number
+0 / 0; // NaN
+Infinity - Infinity; // NaN
+Math.sqrt(-1); // NaN
+parseInt("foo"); // NaN
+```
 
 #### Occurences of undefined
 
 ```js
 // Uninit variable
-let a;
+let a; // undefined
 
 // Missing params
 function foo(a, b) {
-  console.log(b);
+  console.log(b); // undefined
 }
 
 // Object access nonexistence prop
 const o = {};
-console.log(o.a);
+console.log(o.a); // undefined
 
 // Function with no return
 function foo() {}
-console.log(foo());
+console.log(foo()); // undefined
 ```
