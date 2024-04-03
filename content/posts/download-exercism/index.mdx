@@ -1,0 +1,51 @@
+---
+title: "How to download all exercism into your local"
+date: 2024-03-30
+slug: "/download-all-exercism"
+tags:
+  - Programming
+---
+
+Hi guys. I really like exercism to learn a new language when it has lots of test covered on every exercise.
+And you can also download it into your computer.
+
+However, you have to manually download each exercise one by one and it's pissed me off!
+Then I found a way on Github that let us download them all at once. [Download all items for given track · Issue #718 · exercism/cli (github.com)](https://github.com/exercism/cli/issues/718)
+Big shout out for people who contribute to this thread!
+
+**Step 1:** copy this into a new bash file (Ex: download_exercism.sh)
+
+```sh
+#!/usr/bin/env bash
+
+set -e
+set -u
+
+export track="$1"
+
+curl \
+  --silent --fail \
+  "https://exercism.org/api/v2/tracks/$track/exercises" \
+  | sed 's/"slug":"/\n/g' \
+  | sed 's/",.*$//' \
+  | grep -v '"exercises":' \
+  | while read -r slug; do
+      exercism download --track="$track" --exercise="$slug"
+    done
+```
+
+**Step 2:** make it executable
+
+```sh
+chmod +x download_exercism.sh
+```
+
+**Step 3:** execute it with the track you want to download and all exercises will be downloaded into your $HOME directory.
+
+```
+./download_exercism.sh gleam
+```
+
+**Note:** if you got any error message related to the restriction of downloading lock exercises.  
+You have to click **Disable Learning Mode** to unlock all exercises before download them as the image below.
+![[Exercism disable learning mode.png]]
