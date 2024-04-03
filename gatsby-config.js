@@ -16,6 +16,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        // The "domain" is what you chose as an identifier and what comes up in the URL:
+        // https://plausible.io/<domain>
+        domain: `tnhoang.me`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-vercel",
       options: {
         // (optional) Prints metrics in the console when true

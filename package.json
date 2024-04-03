@@ -27,6 +27,7 @@
     "gatsby-plugin-matomo": "^0.16.2",
     "gatsby-plugin-netlify": "^3.6.1",
     "gatsby-plugin-offline": "^4.6.0",
+    "gatsby-plugin-plausible": "^0.0.7",
     "gatsby-plugin-sitemap": "^4.2.0",
     "gatsby-plugin-styled-components": "^4.9.0",
     "gatsby-plugin-vercel": "^1.0.4",
