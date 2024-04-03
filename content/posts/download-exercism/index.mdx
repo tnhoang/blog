@@ -4,6 +4,7 @@ date: 2024-03-30
 slug: "/download-all-exercism"
 tags:
   - Programming
+  - Productivity
 ---
 
 Hi guys. I really like exercism when it has lots of test covered on each exercise.  
@@ -15,7 +16,7 @@ Big shout out for people in this thread!
 
 **Step 1:** create new bash file with below content (Ex: vi download_exercism.sh)
 
-```sh
+```bash
 #!/usr/bin/env bash
 
 set -e
@@ -36,13 +37,13 @@ curl \
 
 **Step 2:** make it executable
 
-```sh
+```bash
 chmod +x download_exercism.sh
 ```
 
 **Step 3:** execute it with the track you want to download.
 
-```
+```bash
 ./download_exercism.sh gleam
 ```
 
